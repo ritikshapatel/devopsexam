@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: devopsexam
+spec:
+  replicas: 3
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: devopsexam
+  template:
+    metadata:
+      labels:
+        app: devopsexam
+    spec:
+      containers:
+      - name: devopsexam
+        image: ritikshapatel/devopsexam
+        ports:
+         - containerPort: 8080
